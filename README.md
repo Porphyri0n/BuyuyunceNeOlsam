@@ -19,7 +19,7 @@
 ### Adımlar
 
 1. **Projeyi Klonlayın**
-Proje, @google/generative-ai paketini kullanmaktadır. Bu paketi yüklemek için:
+- Proje, @google/generative-ai paketini kullanmaktadır. Bu paketi yüklemek için:
 
    ```bash
    git clone https://github.com/kullaniciadi/buyuyunce-ne-olsam.git
