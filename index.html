@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Büyüyünce ne olsam?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Büyüyünce ne olsam?</h1>
+        <p>Eşin dostun doktor ol dayatmalarından sıkıldın mı? Doğru yerdesin! Şimdi aşağıdaki alanlarda bize hobilerinden ve iyi olduğun konulardan bahset, sana özel oluşturulmuş yapay zekamız hangi alanda çalışacağını şak diye söylesin!</p>
+
+        <form id="interest-form">
+            <div class="form-group">
+                <label for="interests">
+                    <i class="fas fa-heart"></i> Hobilerin neler?
+                </label>
+                <input type="text" id="interests" name="interests" placeholder="Örneğin: Kitap okumak, Tenis oynamak, Yüzmek" required>
+            </div>
+
+            <div class="form-group">
+                <label for="activities">
+                    <i class="fas fa-star"></i> İyi olduğunu düşündüğün alanlar:
+                </label>
+                <input type="text" id="activities" name="activities" placeholder="Örneğin: Kod yazmak, Koşu birinciliğim var, Çok fena basketbol oynarım" required>
+            </div>
+
+            <button type="button" id="submit-btn">
+                <i class="fas fa-search"></i> Mesleğimi Bulalım!
+            </button>
+        </form>
+
+        <div id="loading" class="loading" style="display: none;">Lütfen bekleyin...</div>
+
+
+        <div id="recommendations-container" class="recommendations-container">
+            <h2>Kariyer Önerilerin:</h2>
+            <div id="recommendations"></div>
+        </div>
+    </div>
+    
+    <script type="module">
+        import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "https://esm.run/@google/generative-ai";
+        import { API_KEY } from "./env.js";
+        const genAI = new GoogleGenerativeAI(API_KEY);
+
+        const safetySettings = [
+            {
+                category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+                threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+            },
+        ];
+
+        document.getElementById('submit-btn').addEventListener('click', async () => {
+            document.getElementById('loading').style.display = 'block';
+
+            const interests = document.getElementById('interests').value;
+            const activities = document.getElementById('activities').value;
+            const prompt = `Merhaba! Benim hobilerim: ${interests}, ve iyi olduğum alanlar: ${activities}. Lütfen bu bilgilere dayanarak toplamda 5 tane olacak şekilde bana en uygun ve güncel meslek önerilerinde bulun. Her bir meslek için aşağıdaki bilgileri detaylı ve etkileyici bir şekilde ver:
+
+- **Mesleğin Adı ve Tanımı**: Mesleğin ne olduğu ve temel olarak ne yaptığı.
+- **Neden Bana Uygun Olduğu**: Hobilerim ve yeteneklerimle nasıl örtüştüğü.
+- **Gelecekteki İş İmkânları**: Bu mesleğin gelecekteki potansiyeli.
+- **Gerekli Eğitim ve Beceriler**:Bu mesleği yapmak için hangi eğitimlerin alınması, hangi üniversite bölümlerinin okunması ve nasıl bir yol haritası çizilmesi gerektiği.
+- **Başarı İçin Tavsiyeler**: Bu alanda başarılı olmak için izleyebileceğim adımlar veya ipuçları.
+
+Önerilerin son derece kişiselleştirilmiş, yaratıcı ve ilham verici olsun. Mümkünse, günümüzün yeni ortaya çıkan mesleklerini veya geleceğin trendlerini de dahil et. Ayrıca, samimi bir üslup kullan ve beni gerçekten motive edecek bir dil tercih et.`;
+
+            try {
+                const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash', safetySettings });
+                const result = await model.generateContent([prompt]);
+                const response = await result.response;
+                let text = await response.text();  // 'const' yerine 'let' olarak tanımladık
+
+                 // Markdown formatındaki **kalın** ve ## başlık gibi formatları HTML'ye çeviriyoruz
+                 text = text
+                    .replace(/## (.*?)\n/g, '<h2>$1</h2>') // ## başlıklarını <h2> başlığına çeviriyoruz
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // **kalın** olanları <strong> yapıyoruz
+
+                 // Önerileri gösteriyoruz ve her öneriyi .recommendation-item div'i ile sarmalıyoruz
+                 const recommendationsArray = text.split('\n').filter(item => item.trim() !== '');
+                 const recommendationsHTML = recommendationsArray.map(item => `<div class="recommendation-item">${item}</div>`).join('');
+                // Önerileri gösteriyoruz ve yükleme mesajını gizliyoruz
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('recommendations').innerHTML = text.replace(/\n/g, '<br>');
+            } catch (error) {
+                console.error('Meslek önerileri oluşturulurken bir hata oluştu:', error);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('recommendations').innerText = 'Önerileri alırken bir hata oluştu. Lütfen tekrar deneyin.';
+            }
+        });
+    </script>
+</body>
+</html>
