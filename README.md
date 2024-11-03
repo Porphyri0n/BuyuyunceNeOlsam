@@ -80,8 +80,8 @@ Bu proje **GNA Lisansı** ile lisanslanmıştır. Detaylar için [LICENSE](LICEN
 ## İletişim
 
 - **Geliştirici**: Egemen Çalışkan, Erdoğan Başer
-- **E-posta**: jeithx@gmail.com, eb.baser@gmail.com
-- **GitHub**: https://github.com/Jeithx, https://github.com/Porphyri0n
+- **E-posta**: jeithx@gmail.com eb.baser@gmail.com
+- **GitHub**: https://github.com/Jeithx https://github.com/Porphyri0n
 
 ---
 
