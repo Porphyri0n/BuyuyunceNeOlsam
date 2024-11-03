@@ -75,7 +75,7 @@
 
 ## Lisans
 
-Bu proje **GNA Lisansı** ile lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakabilirsiniz.
+Bu proje **GNU Lisansı** ile lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakabilirsiniz.
 
 ## İletişim
 
