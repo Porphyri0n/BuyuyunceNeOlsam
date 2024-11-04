@@ -68,12 +68,12 @@
             const prompt = `Merhaba! Benim hobilerim: ${interests}, ve iyi olduğum alanlar: ${activities}. Lütfen bu bilgilere dayanarak toplamda 5 tane olacak şekilde bana en uygun ve güncel meslek önerilerinde bulun. Her bir meslek için aşağıdaki bilgileri detaylı ve etkileyici bir şekilde ver:
 
 - **Mesleğin Adı ve Tanımı**: Mesleğin ne olduğu ve temel olarak ne yaptığı.
-- **Neden Bana Uygun Olduğu**: Hobilerim ve yeteneklerimle nasıl örtüştüğü.
+- **Neden Size Uygun Olduğu**: Hobilerim ve yeteneklerimle nasıl örtüştüğü.
 - **Gelecekteki İş İmkânları**: Bu mesleğin gelecekteki potansiyeli.
 - **Gerekli Eğitim ve Beceriler**:Bu mesleği yapmak için hangi eğitimlerin alınması, hangi üniversite bölümlerinin okunması ve nasıl bir yol haritası çizilmesi gerektiği.
 - **Başarı İçin Tavsiyeler**: Bu alanda başarılı olmak için izleyebileceğim adımlar veya ipuçları.
 
-Önerilerin son derece kişiselleştirilmiş, yaratıcı ve ilham verici olsun. Mümkünse, günümüzün yeni ortaya çıkan mesleklerini veya geleceğin trendlerini de dahil et. Ayrıca, samimi bir üslup kullan ve beni gerçekten motive edecek bir dil tercih et.`;
+Önerilerin son derece kişiselleştirilmiş, yaratıcı ve ilham verici olsun. Mümkünse, günümüzün yeni ortaya çıkan mesleklerini veya geleceğin trendlerini de dahil et. Ayrıca, samimi bir üslup kullan ve beni gerçekten motive edecek bir dil tercih et. Eğer ki yazılan şeyler hobi veya iyi olduğun konulardan, ilgi alanlarından bağımsızsa bunu da kontrol et ve ona göre kullanıcıya bir yanıt ver`;
 
             try {
                 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash', safetySettings });
