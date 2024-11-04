@@ -85,4 +85,3 @@ Bu proje **GNU Lisansı** ile lisanslanmıştır. Detaylar için [LICENSE](LICEN
 
 ---
 
-**Not:** Bu projeyi kullanırken Google Generative AI kullanım şartlarına ve politikalarına uyduğunuzdan emin olun.
