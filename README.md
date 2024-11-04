@@ -35,7 +35,7 @@
 
 3. **API Anahtarını Ayarlayın**
 
-   - Proje dizininde bir `env.js` dosyası oluşturun ve Google Generative AI API anahtarınızı ekleyin:
+   Proje dizininde bir `env.js` dosyası oluşturun ve Google Generative AI API anahtarınızı ekleyin:
 
    ```javascript
    // env.js
