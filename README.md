@@ -37,10 +37,10 @@
 
    - Proje dizininde bir `env.js` dosyası oluşturun ve Google Generative AI API anahtarınızı ekleyin:
 
-     ```javascript
-     // env.js
-     export const API_KEY = 'SİZİN_GEMINI_API_ANAHTARINIZ';
-     ```
+   ```javascript
+   // env.js
+   export const API_KEY = 'SİZİN_GEMINI_API_ANAHTARINIZ';
+   ```
 
 4. **Uygulamayı Başlatın**
 
