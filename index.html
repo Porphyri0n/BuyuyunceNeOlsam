@@ -3,71 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Büyüyünce Ne Olsam?</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Kariyer Rehberi AI - Hobileriniz ve güçlü yönlerinize göre kişiselleştirilmiş kariyer önerileri sunan yapay zeka uygulaması" />
+  <title>Kariyer Rehberi AI - Geleceğin Mesleklerini Keşfet</title>
+  <link rel="stylesheet" href="landing.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Büyüyünce Ne Olsam?</h1>
-  </header>
-  <main>
-    <section class="form-section">
-      <form id="career-form" class="career-form">
-        <label>Adınız (isteğe bağlı)
-          <input type="text" name="ad" />
-        </label>
-        <label>Yaş
-          <input type="number" name="yas" min="10" max="100" required />
-        </label>
-        <label>Eğitim Seviyesi
-          <select name="egitim">
-            <option value="ortaokul">Ortaokul</option>
-            <option value="lise">Lise</option>
-            <option value="önlisans">Önlisans</option>
-            <option value="lisans">Lisans</option>
-            <option value="yüksek">Yüksek Lisans</option>
-            <option value="doktora">Doktora</option>
-          </select>
-        </label>
-        <label>Sevdiğiniz / zorlanmadan öğrendiğiniz dersler
-          <textarea name="favori_dersler"></textarea>
-        </label>
-        <label>Hobileriniz / İlgi Alanlarınız
-          <textarea name="hobiler"></textarea>
-        </label>
-        <label>Güçlü Yönleriniz
-          <textarea name="guclu_yonler"></textarea>
-        </label>
-        <label>Önemsediğiniz iş değerleri
-          <textarea name="degerler"></textarea>
-        </label>
-        <label>Tercih ettiğiniz çalışma biçimi
-          <select name="calisma_bicimi">
-            <option value="uzaktan">Uzaktan</option>
-            <option value="ofis">Ofis</option>
-            <option value="hibrit">Hibrit</option>
-          </select>
-        </label>
-        <label>Yabancı diller & sertifikalar
-          <textarea name="diller_sertifika"></textarea>
-        </label>
-        <label>Projeler / staj / iş deneyimi
-          <textarea name="deneyim"></textarea>
-        </label>
-        <label>Kariyer hedefleri
-          <textarea name="hedefler"></textarea>
-        </label>
-        <button type="submit" id="submit-btn">
-          <span class="btn-text">Önerileri Al</span>
-          <span class="loading-spinner"></span>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <h1>Kariyer Rehberi <span>AI</span></h1>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#ozellikler">Özellikler</a></li>
+            <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
+            <li><a href="#hakkinda">Hakkında</a></li>
+          </ul>
+          <a href="index.html" class="nav-button">Başla</a>
+        </nav>
+        <button class="mobile-menu-btn" aria-label="Menüyü Aç">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-      </form>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h2 class="hero-title">Geleceğin <span>Kariyerini</span> Yapay Zeka ile Keşfet</h2>
+          <p class="hero-subtitle">
+            Google Gemini 2.5 Flash modeliyle ilgi alanlarınıza ve yeteneklerinize göre 
+            <strong>3 özelleştirilmiş kariyer yolu</strong> sunuyoruz.
+          </p>
+          <div class="hero-buttons">
+            <a href="index.html" class="btn btn-primary">Haydi Başlayalım</a>
+            <a href="#nasil-calisir" class="btn btn-outline">Nasıl Çalışır?</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="image-container">
+            <img src="./docs/demo.png" alt="Kariyer Rehberi AI Arayüzü" class="main-image">
+            <div class="floating-element one"></div>
+            <div class="floating-element two"></div>
+            <div class="floating-element three"></div>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="result-section" class="hidden">
-      <h2>Önerilen Kariyer Yolları</h2>
-      <div id="output" class="result-card"></div>
+
+    <!-- Features Section -->
+    <section class="features" id="ozellikler">
+      <div class="container">
+        <div class="section-header">
+          <h2>Öne Çıkan <span>Özellikler</span></h2>
+          <p>Modern yapay zeka teknolojisiyle geleceğinizi şekillendirin</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="card-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>AI Destekli Analiz</h3>
+            <p>Google'ın Gemini 2.5 Flash modeliyle hızlı ve isabetli kariyer analizleri</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Tam Gizlilik</h3>
+            <p>Verileriniz tamamen gizli kalır, hiçbir bilgi depolanmaz veya paylaşılmaz</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Kişiselleştirilmiş</h3>
+            <p>Benzersiz ilgi alanlarınız ve becerilerinize göre özel kariyer tavsiyeleri</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Modern Arayüz</h3>
+            <p>Cam efektli kartlar ve neon vurgularla şık bir kullanıcı deneyimi</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            </div>
+            <h3>Takip Adımları</h3>
+            <p>Her kariyer yolu için somut ilerleme ve kendini geliştirme adımları</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <h3>Tamamen Ücretsiz</h3>
+            <p>API anahtarınızla herhangi bir ücret ödemeden sınırsız kullanım</p>
+          </div>
+        </div>
+      </div>
     </section>
-  </main>
-  <script type="module" src="app.js"></script>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="nasil-calisir">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nasıl <span>Çalışır?</span></h2>
+          <p>3 basit adımda kariyer yolunuzu keşfedin</p>
+        </div>
+        
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Formu Doldurun</h3>
+              <p>Hobilerinizi, ilgi alanlarınızı, sevdiğiniz dersleri ve güçlü yönlerinizi belirtin.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>AI Analizini Bekleyin</h3>
+              <p>Gemini 2.5 Flash modeli verilerinizi değerlendirerek size en uygun kariyer yollarını belirler.</p>
+            </div>
+          </div>
+          
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Sonuçları İnceleyin</h3>
+              <p>3 farklı kariyer önerisini ve her biri için atmanız gereken adımları görüntüleyin.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cta-container">
+          <a href="index.html" class="btn btn-gradient">Kariyer Yolculuğuna Başla</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="hakkinda">
+      <div class="container">
+        <div class="section-header">
+          <h2>Proje <span>Hakkında</span></h2>
+          <p>Açık kaynak kodlu bir yapay zeka projesi</p>
+        </div>
+        
+        <div class="about-content">
+          <div class="about-text">
+            <p>Kariyer Rehberi AI, tamamen statik (HTML + CSS + JS) bir web uygulamasıdır. Google Gemini 2.5 Flash modelini kullanarak hobileriniz, ilgi alanlarınız ve güçlü yönlerinize göre özelleştirilmiş kariyer yolları önerir.</p>
+            <p>Modern "glass-dark" arayüzü, responsive tasarımı ve kolay kullanımıyla öne çıkar. Hiçbir backend gerektirmeden, API anahtarınızla sınırsız kullanabilirsiniz.</p>
+            <p>MIT lisansı altında dağıtılan açık kaynak bir projedir. GitHub üzerinden projeye katkıda bulunabilir, kendi amaçlarınız için özelleştirebilirsiniz.</p>
+            
+            <div class="tech-stack">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">Gemini API</span>
+              <span class="tech-badge">MIT Lisansı</span>
+            </div>
+          </div>
+          
+          <div class="about-image">
+            <div class="image-frame">
+              <img src="./docs/demo.png" alt="Kariyer Rehberi AI Önizleme" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>Kariyer Rehberi <span>AI</span></h2>
+            <p>Geleceğinizi keşfedin</p>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#ozellikler">Özellikler</a></li>
+              <li><a href="#nasil-calisir">Nasıl Çalışır</a></li>
+              <li><a href="#hakkinda">Hakkında</a></li>
+              <li><a href="https://github.com/kullanici/kariyer-ai" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Kariyer Rehberi AI | <a href="https://github.com/kullanici/kariyer-ai/blob/main/LICENSE" target="_blank" rel="noopener">MIT Lisansı</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="landing.js"></script>
 </body>
 </html>

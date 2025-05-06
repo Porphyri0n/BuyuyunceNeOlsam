@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Büyüyünce Ne Olsam?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Büyüyünce Ne Olsam?</h1>
+  </header>
+  <main>
+    <section class="form-section">
+      <form id="career-form" class="career-form">
+        <label>Adınız (isteğe bağlı)
+          <input type="text" name="ad" />
+        </label>
+        <label>Yaş
+          <input type="number" name="yas" min="10" max="100" required />
+        </label>
+        <label>Eğitim Seviyesi
+          <select name="egitim">
+            <option value="ortaokul">Ortaokul</option>
+            <option value="lise">Lise</option>
+            <option value="önlisans">Önlisans</option>
+            <option value="lisans">Lisans</option>
+            <option value="yüksek">Yüksek Lisans</option>
+            <option value="doktora">Doktora</option>
+          </select>
+        </label>
+        <label>Sevdiğiniz / zorlanmadan öğrendiğiniz dersler
+          <textarea name="favori_dersler"></textarea>
+        </label>
+        <label>Hobileriniz / İlgi Alanlarınız
+          <textarea name="hobiler"></textarea>
+        </label>
+        <label>Güçlü Yönleriniz
+          <textarea name="guclu_yonler"></textarea>
+        </label>
+        <label>Önemsediğiniz iş değerleri
+          <textarea name="degerler"></textarea>
+        </label>
+        <label>Tercih ettiğiniz çalışma biçimi
+          <select name="calisma_bicimi">
+            <option value="uzaktan">Uzaktan</option>
+            <option value="ofis">Ofis</option>
+            <option value="hibrit">Hibrit</option>
+          </select>
+        </label>
+        <label>Yabancı diller & sertifikalar
+          <textarea name="diller_sertifika"></textarea>
+        </label>
+        <label>Projeler / staj / iş deneyimi
+          <textarea name="deneyim"></textarea>
+        </label>
+        <label>Kariyer hedefleri
+          <textarea name="hedefler"></textarea>
+        </label>
+        <button type="submit" id="submit-btn">
+          <span class="btn-text">Önerileri Al</span>
+          <span class="loading-spinner"></span>
+        </button>
+      </form>
+    </section>
+    <section id="result-section" class="hidden">
+      <h2>Önerilen Kariyer Yolları</h2>
+      <div id="output" class="result-card"></div>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
