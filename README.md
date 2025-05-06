@@ -112,4 +112,4 @@ Uygulama salt statik olduğundan GitHub Pages, Netlify Drop, Vercel Static Hosti
 
 ## 📄 Lisans
 
-MIT
+GPL-3.0 LICENSE
