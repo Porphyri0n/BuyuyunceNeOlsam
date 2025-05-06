@@ -1,106 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hobileriniz ve yetenekleriniz doğrultusunda en uygun mesleği keşfedin. Yapay zeka destekli platformumuz, size özel kariyer önerileri sunar.">
-    <meta name="keywords" content="meslek seçimi, kariyer önerileri, yapay zeka, hobiler, yetenekler, meslek testi, kariyer planlama, büyüyünce ne olsam, büyüyünce ne, büyüyünce">
-    <title>Büyüyünce ne olsam?</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Büyüyünce Ne Olsam?</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <img src="/Assets/logo.png" alt="Description of the image" width="100" height="100">
-
-        <h1>Büyüyünce ne olsam?</h1>
-        
-        
-        <p>Eşin dostun doktor ol dayatmalarından sıkıldın mı? Doğru yerdesin! Şimdi aşağıdaki alanlarda bize hobilerinden ve iyi olduğun konulardan bahset, sana özel oluşturulmuş yapay zekamız hangi alanda çalışacağını şak diye söylesin!</p>
-
-        <form id="interest-form">
-            <div class="form-group">
-                <label for="interests">
-                    <i class="fas fa-heart"></i> Hobilerin neler?
-                </label>
-                <input type="text" id="interests" name="interests" placeholder="Örneğin: Kitap okumak, Tenis oynamak, Yüzmek" required>
-            </div>
-
-            <div class="form-group">
-                <label for="activities">
-                    <i class="fas fa-star"></i> İyi olduğunu düşündüğün alanlar:
-                </label>
-                <input type="text" id="activities" name="activities" placeholder="Örneğin: Kod yazmak, Koşu birinciliğim var, Çok fena basketbol oynarım" required>
-            </div>
-
-            <button type="button" id="submit-btn">
-                <i class="fas fa-search"></i> Mesleğimi Bulalım!
-            </button>
-        </form>
-
-        <div id="loading" class="loading" style="display: none;">Lütfen bekleyin...</div>
-
-
-        <div id="recommendations-container" class="recommendations-container">
-            <h2>Kariyer Önerilerin:</h2>
-            <div id="recommendations"></div>
-        </div>
-    </div>
-
-    <a href="https://gemini.google.com/" class="powered-by" style="position: fixed; bottom: 10px; right: 10px; text-decoration: none; color: #555; font-size: 0.9em;">Powered by Gemini</a>
-
-    
-    <script type="module">
-        import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "https://esm.run/@google/generative-ai";
-        import { API_KEY } from "./env.js";
-        const genAI = new GoogleGenerativeAI(API_KEY);
-
-        const safetySettings = [
-            {
-                category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-                threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-            },
-        ];
-
-        document.getElementById('submit-btn').addEventListener('click', async () => {
-            document.getElementById('loading').style.display = 'block';
-
-            const interests = document.getElementById('interests').value;
-            const activities = document.getElementById('activities').value;
-            const prompt = `Merhaba! Benim hobilerim: ${interests}, ve iyi olduğum alanlar: ${activities}. Lütfen bu bilgilere dayanarak toplamda 5 tane olacak şekilde bana en uygun ve güncel meslek önerilerinde bulun. Her bir meslek için aşağıdaki bilgileri detaylı ve etkileyici bir şekilde ver:
-
-- **Mesleğin Adı ve Tanımı**: Mesleğin ne olduğu ve temel olarak ne yaptığı.
-- **Neden Size Uygun Olduğu**: Hobilerim ve yeteneklerimle nasıl örtüştüğü.
-- **Gelecekteki İş İmkânları**: Bu mesleğin gelecekteki potansiyeli.
-- **Gerekli Eğitim ve Beceriler**:Bu mesleği yapmak için hangi eğitimlerin alınması, hangi üniversite bölümlerinin okunması ve nasıl bir yol haritası çizilmesi gerektiği.
-- **Başarı İçin Tavsiyeler**: Bu alanda başarılı olmak için izleyebileceğim adımlar veya ipuçları.
-
-Önerilerin son derece kişiselleştirilmiş, yaratıcı ve ilham verici olsun. Mümkünse, günümüzün yeni ortaya çıkan mesleklerini veya geleceğin trendlerini de dahil et. Ayrıca, samimi bir üslup kullan ve beni gerçekten motive edecek bir dil tercih et. Eğer ki yazılan şeyler hobi veya iyi olduğun konulardan, ilgi alanlarından bağımsızsa bunu da kontrol et ve ona göre kullanıcıya bir yanıt ver`;
-
-            try {
-                const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash', safetySettings });
-                const result = await model.generateContent([prompt]);
-                const response = await result.response;
-                let text = await response.text();  // 'const' yerine 'let' olarak tanımladık
-
-                 // Markdown formatındaki **kalın** ve ## başlık gibi formatları HTML'ye çeviriyoruz
-                 text = text
-                    .replace(/## (.*?)\n/g, '<h2>$1</h2>') // ## başlıklarını <h2> başlığına çeviriyoruz
-                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // **kalın** olanları <strong> yapıyoruz
-
-                 // Önerileri gösteriyoruz ve her öneriyi .recommendation-item div'i ile sarmalıyoruz
-                 const recommendationsArray = text.split('\n').filter(item => item.trim() !== '');
-                 const recommendationsHTML = recommendationsArray.map(item => `<div class="recommendation-item">${item}</div>`).join('');
-                // Önerileri gösteriyoruz ve yükleme mesajını gizliyoruz
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('recommendations').innerHTML = text.replace(/\n/g, '<br>');
-            } catch (error) {
-                console.error('Meslek önerileri oluşturulurken bir hata oluştu:', error);
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('recommendations').innerText = 'Önerileri alırken bir hata oluştu. Lütfen tekrar deneyin.';
-            }
-        });
-    </script>
+  <header>
+    <h1>Büyüyünce Ne Olsam?</h1>
+  </header>
+  <main>
+    <section class="form-section">
+      <form id="career-form" class="career-form">
+        <label>Adınız (isteğe bağlı)
+          <input type="text" name="ad" />
+        </label>
+        <label>Yaş
+          <input type="number" name="yas" min="10" max="100" required />
+        </label>
+        <label>Eğitim Seviyesi
+          <select name="egitim">
+            <option value="ortaokul">Ortaokul</option>
+            <option value="lise">Lise</option>
+            <option value="önlisans">Önlisans</option>
+            <option value="lisans">Lisans</option>
+            <option value="yüksek">Yüksek Lisans</option>
+            <option value="doktora">Doktora</option>
+          </select>
+        </label>
+        <label>Sevdiğiniz / zorlanmadan öğrendiğiniz dersler
+          <textarea name="favori_dersler"></textarea>
+        </label>
+        <label>Hobileriniz / İlgi Alanlarınız
+          <textarea name="hobiler"></textarea>
+        </label>
+        <label>Güçlü Yönleriniz
+          <textarea name="guclu_yonler"></textarea>
+        </label>
+        <label>Önemsediğiniz iş değerleri
+          <textarea name="degerler"></textarea>
+        </label>
+        <label>Tercih ettiğiniz çalışma biçimi
+          <select name="calisma_bicimi">
+            <option value="uzaktan">Uzaktan</option>
+            <option value="ofis">Ofis</option>
+            <option value="hibrit">Hibrit</option>
+          </select>
+        </label>
+        <label>Yabancı diller & sertifikalar
+          <textarea name="diller_sertifika"></textarea>
+        </label>
+        <label>Projeler / staj / iş deneyimi
+          <textarea name="deneyim"></textarea>
+        </label>
+        <label>Kariyer hedefleri
+          <textarea name="hedefler"></textarea>
+        </label>
+        <button type="submit" id="submit-btn">
+          <span class="btn-text">Önerileri Al</span>
+          <span class="loading-spinner"></span>
+        </button>
+      </form>
+    </section>
+    <section id="result-section" class="hidden">
+      <h2>Önerilen Kariyer Yolları</h2>
+      <div id="output" class="result-card"></div>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
