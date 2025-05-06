@@ -1,0 +1,197 @@
+/* Kariyer Rehberi AI - Navbar CSS */
+:root {
+    /* Accent Palette */
+    --blue: #3b82f6;
+    --indigo: #6366f1;
+    --purple: #8b5cf6;
+    --pink: #ec4899;
+    
+    /* Other Variables */
+    --radius-sm: 0.5rem;
+    --text: #e2e8f0;
+    --text-inverse: #f8fafc;
+    --spacing-md: 1.5rem;
+    --trans-med: 0.3s;
+    --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+  
+  /* ------------ Header ------------ */
+  .header {
+    position: sticky;
+    top: 0;
+    padding: 1rem 0;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 100;
+  }
+  
+  .header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    background: linear-gradient(90deg, var(--blue), var(--indigo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .logo h1 span {
+    background: linear-gradient(90deg, var(--purple), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin-right: var(--spacing-md);
+  }
+  
+  .nav-list li {
+    margin-left: var(--spacing-md);
+  }
+  
+  .nav-list a {
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.5rem;
+    position: relative;
+  }
+  
+  .nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--indigo), var(--purple));
+    transition: width var(--trans-med) ease;
+  }
+  
+  .nav-list a:hover {
+    color: var(--text-inverse);
+  }
+  
+  .nav-list a:hover::after {
+    width: 100%;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(90deg, var(--indigo), var(--purple));
+    color: white;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    transition: all var(--trans-med) ease;
+  }
+  
+  .nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+    color: white;
+  }
+  
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu-btn span {
+    width: 100%;
+    height: 3px;
+    background: var(--text);
+    border-radius: 3px;
+    transition: all var(--trans-med) ease;
+  }
+  
+  /* Responsive Styles for Navbar */
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+    }
+    
+    .mobile-menu-btn {
+      display: flex;
+    }
+    
+    .nav.active {
+      display: flex;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .nav.active .nav-list {
+      flex-direction: column;
+      width: 100%;
+      margin: 0 0 1.5rem;
+    }
+    
+    .nav.active .nav-list li {
+      margin: 0;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .nav.active .nav-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .nav.active .nav-list a {
+      display: block;
+      padding: 1rem;
+    }
+    
+    .nav.active .nav-button {
+      width: 100%;
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  /* Mevcut style.css ile uyum sağlaması için ek düzenlemeler */
+  .header + main {
+    padding-top: 2rem;
+  }
+  
+  /* Sayfa içi gezinme için düzeltme */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
