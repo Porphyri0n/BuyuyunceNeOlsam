@@ -1,18 +1,18 @@
 /* Kariyer Rehberi AI - Navbar CSS */
 :root {
     /* Accent Palette */
-    --blue: #3b82f6;
-    --indigo: #6366f1;
-    --purple: #8b5cf6;
-    --pink: #ec4899;
+    --blue: #a0c4ff;
+    --indigo: #bdb2ff;
+    --purple: #d8b4fe;
+    --pink: #ffafcc;
     
     /* Other Variables */
     --radius-sm: 0.5rem;
-    --text: #e2e8f0;
-    --text-inverse: #f8fafc;
+    --text: #333333;
+    --text-inverse: #333333;
     --spacing-md: 1.5rem;
     --trans-med: 0.3s;
-    --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.3);
+    --shadow-glow: 0 0 20px rgba(216, 180, 254, 0.3);
   }
   
   .container {
@@ -27,9 +27,9 @@
     position: sticky;
     top: 0;
     padding: 1rem 0;
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     z-index: 100;
   }
   
@@ -145,10 +145,10 @@
       left: 0;
       right: 0;
       flex-direction: column;
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
       padding: 1.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       animation: fadeIn 0.3s ease;
     }
     
