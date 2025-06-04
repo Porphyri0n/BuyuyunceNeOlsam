@@ -4,21 +4,21 @@
 
 /* ------------ Base Styles & Reset ------------ */
 :root {
-    /* Accent Palette */
-    --blue: #3b82f6;
-    --indigo: #6366f1;
-    --purple: #8b5cf6;
-    --pink: #ec4899;
-    
+    /* Accent Palette - softer pastel tones */
+    --blue: #a0c4ff;
+    --indigo: #bdb2ff;
+    --purple: #d8b4fe;
+    --pink: #ffafcc;
+
     /* Background Shades */
-    --bg-start: #1e293b; /* slate-800 */
-    --bg-end: #0f172a;   /* slate-900 */
-    
+    --bg-start: #fff7f9;
+    --bg-end: #f0f7ff;
+
     /* Component Colors */
-    --card-bg: rgba(17, 24, 39, 0.85);  /* slate-900 with opacity */
-    --card-hover: rgba(31, 41, 55, 0.9); /* slate-800 with opacity */
-    --card-border: rgba(99, 102, 241, 0.15);
-    --input-bg: #1f2937;  /* slate-800 */
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --card-hover: rgba(255, 255, 255, 1);
+    --card-border: rgba(0, 0, 0, 0.08);
+    --input-bg: #ffffff;
     
     /* Effects */
     --blur-sm: blur(4px);
@@ -28,9 +28,9 @@
     --radius-lg: 1.5rem;
     
     /* Text Colors */
-    --text: #e2e8f0;       /* slate-200 */
-    --text-muted: #94a3b8; /* slate-400 */
-    --text-inverse: #f8fafc;
+    --text: #333333;
+    --text-muted: #6b7280;
+    --text-inverse: #333333;
     
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -41,10 +41,10 @@
     --spacing-2xl: 5rem;
     
     /* Shadows */
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 18px 40px -8px rgba(0, 0, 0, 0.6);
-    --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.3);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.2);
+    --shadow-glow: 0 0 20px rgba(216, 180, 254, 0.3);
     
     /* Animation Speeds */
     --trans-fast: 0.15s;
@@ -64,7 +64,7 @@
   }
   
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Fredoka', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
     line-height: 1.6;
     color: var(--text);
@@ -205,9 +205,9 @@
     position: sticky;
     top: 0;
     padding: 1rem 0;
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     z-index: 100;
   }
   
@@ -443,8 +443,12 @@
     height: 60px;
     margin-bottom: var(--spacing-md);
     border-radius: 50%;
-    background: rgba(139, 92, 246, 0.15);
+    background: rgba(216, 180, 254, 0.25);
     color: var(--purple);
+  }
+
+  .card-icon i {
+    font-size: 2rem;
   }
   
   .feature-card h3 {
@@ -462,7 +466,7 @@
   /* ------------ How It Works Section ------------ */
   .how-it-works {
     padding: var(--spacing-2xl) 0;
-    background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.7), transparent);
+    background: linear-gradient(180deg, transparent, rgba(216, 180, 254, 0.3), transparent);
   }
   
   .steps {
@@ -505,7 +509,7 @@
     font-weight: 700;
     margin-right: var(--spacing-md);
     flex-shrink: 0;
-    box-shadow: var(--shadow-md), 0 0 0 4px rgba(15, 23, 42, 0.8);
+    box-shadow: var(--shadow-md), 0 0 0 4px rgba(216, 180, 254, 0.6);
   }
   
   .step-content h3 {
@@ -651,9 +655,9 @@
 
   /* ------------ Footer ------------ */
   .footer {
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: var(--blur-md);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
     padding: var(--spacing-xl) 0 var(--spacing-lg);
     margin-top: var(--spacing-2xl);
   }
@@ -796,10 +800,10 @@
       left: 0;
       right: 0;
       flex-direction: column;
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: var(--blur-md);
       padding: var(--spacing-lg);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       animation: fadeIn 0.3s ease;
     }
     
