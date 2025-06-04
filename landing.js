@@ -155,6 +155,35 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.transform = `perspective(1000px) rotateY(-5deg)`;
       });
     }
+
+    // Animate stats counters when in view
+    const statsSection = document.querySelector('.stats');
+    const counters = document.querySelectorAll('.count');
+    if (statsSection && counters.length) {
+      const counterObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            counters.forEach(counter => {
+              const target = parseInt(counter.dataset.target, 10);
+              let current = 0;
+              const step = Math.max(1, Math.floor(target / 100));
+              const update = () => {
+                current += step;
+                if (current >= target) {
+                  counter.textContent = target;
+                } else {
+                  counter.textContent = current;
+                  requestAnimationFrame(update);
+                }
+              };
+              requestAnimationFrame(update);
+            });
+            counterObserver.unobserve(statsSection);
+          }
+        });
+      }, { threshold: 0.4 });
+      counterObserver.observe(statsSection);
+    }
     
     // Add year to copyright in footer
     const yearSpan = document.querySelector('.footer-bottom .year');

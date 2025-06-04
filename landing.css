@@ -538,6 +538,30 @@
   .about-text p:last-of-type {
     margin-bottom: var(--spacing-lg);
   }
+
+  /* ------------ Stats Section ------------ */
+  .stats {
+    padding: var(--spacing-2xl) 0;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15), transparent);
+    text-align: center;
+  }
+
+  .stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+  }
+
+  .stat-card h3 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-inverse);
+  }
+
+  .stat-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
   
   .tech-stack {
     display: flex;
@@ -845,9 +869,10 @@
     .hero-buttons .btn {
       width: 100%;
     }
-    
+
     .features-grid,
-    .testimonials-grid {
+    .testimonials-grid,
+    .stats-grid {
       grid-template-columns: 1fr;
     }
     

@@ -16,6 +16,7 @@ Google Gemini 2.5 Flash modelini kullanarak hobileriniz, ilgi alanlarınız ve g
 | **🗃️ Sıfır Backend**     | Sadece statik dosyalar; CDN'den ES Module import       |
 | **🖼️ Landing Page**      | Etkileyici karşılama sayfası, modern navbar yapısı     |
 | **💬 Kullanıcı Yorumları** | Yeni referans kartlarıyla zenginleştirilmiş arayüz |
+| **📊 İstatistikler**      | Sayfada görünen sayaçlar ile canlı veriler          |
 
 ---
 
