@@ -6,23 +6,23 @@
 
    :root {
      /* Accent palette */
-     --blue: #3b82f6;
-     --indigo: #6366f1;
-     --purple: #8b5cf6;
-     --pink: #ec4899;
+     --blue: #a0c4ff;
+     --indigo: #bdb2ff;
+     --purple: #d8b4fe;
+     --pink: #ffafcc;
    
      /* Grey background shades */
-     --bg-start: #1e293b;   /* slate‑800 */
-     --bg-end:   #0f172a;   /* slate‑900 */
+     --bg-start: #fff7f9;
+     --bg-end:   #f0f7ff;
    
      /* Components */
-     --card-bg:  #111827;   /* slate‑900 */
-     --input-bg: #1f2937;   /* slate‑800 */
+     --card-bg:  #ffffff;
+     --input-bg: #ffffff;
      --input-blur: blur(4px);
    
      /* Text */
-     --text: #e2e8f0;       /* slate‑200 */
-     --text-inverse: #f8fafc;
+     --text: #333333;
+     --text-inverse: #333333;
    
      --radius: 1rem;
    }
@@ -31,7 +31,7 @@
    * { box-sizing: border-box; margin: 0; padding: 0; }
    html { scroll-behavior: smooth; }
    body {
-     font-family: "Inter", sans-serif;
+     font-family: "Fredoka", "Inter", sans-serif;
      color: var(--text);
      background: radial-gradient(circle at top left, var(--bg-start) 0%, var(--bg-end) 100%);
      min-height: 100vh;
@@ -48,8 +48,8 @@
      position: fixed;
      inset: 0 0 auto 0;
      backdrop-filter: blur(8px);
-     background: linear-gradient(90deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.9) 100%);
-     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+     background: rgba(255, 255, 255, 0.9);
+     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
      z-index: 1000;
      animation: slideDown 0.5s cubic-bezier(0.25, 1, 0.5, 1) both;
    }
