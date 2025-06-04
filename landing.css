@@ -538,6 +538,30 @@
   .about-text p:last-of-type {
     margin-bottom: var(--spacing-lg);
   }
+
+  /* ------------ Stats Section ------------ */
+  .stats {
+    padding: var(--spacing-2xl) 0;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15), transparent);
+    text-align: center;
+  }
+
+  .stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+  }
+
+  .stat-card h3 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-inverse);
+  }
+
+  .stat-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
   
   .tech-stack {
     display: flex;
@@ -572,7 +596,59 @@
     width: 100%;
     display: block;
   }
-  
+
+  /* ------------ Testimonials Section ------------ */
+  .testimonials {
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(180deg, transparent, rgba(31, 41, 55, 0.5), transparent);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .testimonial-card {
+    background: var(--card-bg);
+    backdrop-filter: var(--blur-sm);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all var(--trans-med) ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-6px);
+    background: var(--card-hover);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+  }
+
+  .testimonial-text {
+    color: var(--text-inverse);
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-muted);
+  }
+
+  .testimonial-author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--indigo);
+  }
+
   /* ------------ Footer ------------ */
   .footer {
     background: rgba(15, 23, 42, 0.9);
@@ -793,8 +869,10 @@
     .hero-buttons .btn {
       width: 100%;
     }
-    
-    .features-grid {
+
+    .features-grid,
+    .testimonials-grid,
+    .stats-grid {
       grid-template-columns: 1fr;
     }
     
