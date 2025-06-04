@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
     
-    // Scroll Animation for Features
-    const featureCards = document.querySelectorAll('.feature-card');
+    // Scroll Animation for Features & Testimonials
+    const featureCards = document.querySelectorAll('.feature-card, .testimonial-card');
     const animateOnScroll = function() {
       featureCards.forEach((card, index) => {
         const cardPosition = card.getBoundingClientRect().top;
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     };
     
-    // Set initial state for feature cards
+    // Set initial state for feature and testimonial cards
     featureCards.forEach(card => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(30px)';
